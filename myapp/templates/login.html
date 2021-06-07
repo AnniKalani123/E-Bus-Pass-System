@@ -1,0 +1,72 @@
+{% load static %} {% block content %}
+
+<head>
+    {% block css %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-grad-school.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/lightbox.css' %}"> {% endblock %}
+</head>
+<section class="section contact" data-section="section6">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Log In</h2>
+                </div>
+            </div>
+            <center>
+                <div class="col-md-8">
+
+                    <form id="login" action="{% url 'login' %}" method="post" style="margin-left: 120px;">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type='email' placeholder="Enter Your Email." class="form-control" name='email'>
+                            </div>
+                            <div class="col-md-12">
+                                <input type='password' placeholder="Enter Your Password." class="form-control" name='password'>
+                            </div>
+
+                            <div class="col-md-12">
+                                <fieldset>
+                                    <button type='submit' id="form-submit" class="button">Log In</button>
+                                </fieldset><br>
+                                <!-- <a href=#>
+                                    <fieldset>
+
+                                    </fieldset>
+                                </a> -->
+                                <fieldset>
+                                    <a href="{% url 'signup' %}"><button type='button' id="form-submit" class="button">Sign Up</button></a>
+                                    <a href="{% url 'forgot_password' %}"><button type='button' id="form-submit" class="button">Forgot Password</button></a>
+                                </fieldset>
+                                </a>
+                            </div>
+                        </div>
+                        <br> {% if msg %}
+                        <div class="alert alert-dark" role="alert">
+                            {{msg}}
+                        </div>
+                        {% endif %}
+                    </form>
+
+                    <!-- <a href=#>
+                        <div class="col-md-12">
+                            <fieldset>
+                                <button type='submit' id="form-submit" class="button">Sign Up</button>
+                            </fieldset>
+                        </div>
+                    </a> -->
+
+                </div>
+            </center>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

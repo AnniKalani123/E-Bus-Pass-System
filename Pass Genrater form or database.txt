@@ -1,0 +1,13 @@
+barcode:
+	fields: [Name: Pooja Pal
+	From:Valsad
+	to:surat
+	Distance:90Km
+	Duration:1 month
+	Start Date: 25.05.2021
+	End Date: 25.06.2021
+	Amount:3000]
+
+	<Pay buttion - click on it go throught payment process after successful payment user aable to download his pass document/ or print>
+	
+	

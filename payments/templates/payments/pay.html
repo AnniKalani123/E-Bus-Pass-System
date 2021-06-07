@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Payment Home</title>
+</head>
+
+<body>
+    <center>
+        <h2>Payment Home</h2>
+        {% if error %}
+        <h3>{{ error }}</h3>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+
+
+            
+            <table class="table table-bordered table-hover">
+                <tbody>
+                    <tr>
+                        <th><label for="username">Username: </label></th>
+                        <td> <input id="username" type="text" name="username" value={{amt}} required></td>
+                    </tr>
+                    <tr>
+                        <th><label id="password" for="password">Password: </label></th>
+                        <td><input type="password" name="password" required></td>
+                    </tr>
+                    <tr>
+                        <th><label id="amount" for="amount">Amount: </label></th>
+                        <td><input type="number" name="amount" value="{{amount}}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="submit" name="submit" value="Submit" required>
+        </form>
+    </center>
+</body>
+
+</html>

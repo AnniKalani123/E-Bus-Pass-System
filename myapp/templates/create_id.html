@@ -1,0 +1,50 @@
+{% extends 'header.html' %} {% load static %} {% block content %}
+
+<head>
+    {% block 'css' %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>Grad School HTML5 Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-grad-school.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/lightbox.css' %}"> {% endblock %}
+    <!--
+    
+TemplateMo 557 Grad School
+
+https://templatemo.com/tm-557-grad-school
+
+-->
+</head>
+<section class="section contact" data-section="section6">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Create ID</h2>
+                    <form>
+                        <p style="color: white;">By clicking the button you accept the terms and conditions and make a payment of 50 Rs. in order to get your Pass ID.</p>
+                        <a href="{% url 'pay_now' %}"><button type='button' id="form-submit" class="button">Pay Now</button></a>
+                    </form>
+                </div>
+            </div>
+
+            <!-- <div class="col-md-6 ">
+            <div id="map ">
+                <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed " width="100% " height="422px " frameborder="0 " style="border:0 " allowfullscreen></iframe>
+            </div>
+        </div> -->
+        </div>
+    </div>
+</section>
+{% endblock %}

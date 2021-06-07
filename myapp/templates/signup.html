@@ -1,0 +1,111 @@
+{% load static %} {% block content %}
+
+<head>
+    {% block css %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-grad-school.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/lightbox.css' %}"> {% endblock %}
+</head>
+<section class="section contact" data-section="section6">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <center>
+                        <h2>Sign Up</h2>
+                    </center>
+                </div>
+            </div>
+
+            <center>
+                <div class="col-md-8">
+
+                    <!-- Do you need a working HTML contact-form script?
+                
+                Please visit https://templatemo.com/contact page -->
+
+                    <form id="signup" action="{% url 'signup' %}" method="post" style="margin-left: 20px;">
+                        {% csrf_token %}
+                        <div class="row ">
+                            <div class="col-md-12 ">
+                                <input type='text' placeholder="Enter Your username. " class="form-control " name='Username'>
+                            </div>
+                            <div class="col-md-12 ">
+                                <input type='FirstName' placeholder="Enter Your fname. " class="form-control " name='fname'>
+                            </div>
+                            <div class="col-md-12 ">
+                                <input type='LastName' placeholder="Enter Your lname. " class="form-control " name='lname'>
+                            </div>
+                            <div class="col-md-12 ">
+                                <input type='Contact' placeholder="Enter Your contact. " class="form-control " name='contact'>
+                            </div>
+                            <div class="col-md-12 ">
+                                <input type='Email' placeholder="Enter Your email. " class="form-control " name='email'>
+                            </div>
+                            <div class="col-md-12 ">
+                                <input type='Address' placeholder="Enter Your address. " class="form-control " name='address'>
+                            </div>
+                            <div class="col-md-12 ">
+                                <input type='Password' placeholder="Enter Your password. " class="form-control " name='password'>
+                            </div>
+                            <div class="col-md-12 ">
+                                <input type='Password' placeholder="Enter Your c_password. " class="form-control " name='c_password'>
+                            </div>
+                            <div class="col-md-12 ">
+                                <input type='text' placeholder="Enter Your gender. " class="form-control " name='Gender'>
+                            </div>
+                            <div class="col-md-12 ">
+                                <input type='Age' placeholder="Enter Your age. " class="form-control " name='age'>
+                            </div>
+                            <!-- <div class="col-md-12 ">
+                                <input type='file' placeholder="Select Your Profile" class="form-control " name='Profile_pic'>
+                            </div> -->
+                            <!-- <div class="col-md-12 ">
+                                <!-- <img src="{% static 'user_images/pic.jpg'%} " alt="image not found "> -->
+                            <!-- <label style="color:white" for="porf_pic ">Add profile picture:</label> -->
+                            <!-- <input type="file" id="prof_pic " name="prof_pic "> -->
+                            <!-- </div> -->
+                            <!-- <div class="col-md-12 ">
+                                <label style="color: white; "> Handicaped </label>
+                                <input type='checkbox' placeholder="is_handicaped. " class="form-control " name='is_handicaped'>
+                            </div> -->
+                            <!-- <div class="col-md-12 ">
+                                <label style="color: white; "> Pass Valid </label>
+                                <input type='checkbox' placeholder="Enter Your pass_valid. " class="form-control " name='pass_valid'>
+                            </div> -->
+                            <!-- <div class="col-md-12 ">
+                                <fieldset>
+                                    <textarea name="message " rows="6 " class="form-control " id="message " placeholder="Your message... " required=" "></textarea>
+                                </fieldset>
+                            </div> -->
+                            {% if msg%}
+                            < class="row ">
+                                <h3>{{msg}}</h3>
+                                </> {% endif %}
+                                <div class="col-md-12 ">
+                                    <fieldset>
+                                        <button type='submit' id="form-submit " class="button ">Sign Up</button>
+                                    </fieldset>
+                                    <!-- <fieldset>
+                                    <button type="submit "  class="button ">Send Message Now</button>
+                                </fieldset> -->
+                                </div>
+                        </div>
+                    </form>
+                    <a href='{% url "login" %}' style="margin-left: 40px;">Back To Login</a>
+                </div>
+            </center>
+            <!-- <div class="col-md-6 ">
+            <div id="map ">
+                <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed " width="100% " height="422px " frameborder="0 " style="border:0 " allowfullscreen></iframe>
+            </div>
+        </div> -->
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% load static %} {% block content %}
+
+<head>
+    {% block css %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-grad-school.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/lightbox.css' %}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            
+            $( "#id_Issue_date" ).datepicker().datepicker('setDate','today');
+            $( "#id_End_date" ).datepicker().datepicker('setDate','+29D');
+
+        } );
+    </script>
+</head>
+
+<center>
+   <form action="" method="POST">
+       {% csrf_token %}
+    <h1>Update Pass Details</h1>
+    <hr>
+    <table>
+        {{form.as_table}}
+    </table>
+    
+    <input type="submit" value="SAVE" class="btn btn-success">
+   </form>
+    
+</center>
+
+{% endblock %}

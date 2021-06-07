@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %} 
+
+<head>
+    {% block css %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-grad-school.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/lightbox.css' %}"> {% endblock %}
+    <title>Callback</title>
+</head>
+
+<body style="font-family: 'Times New Roman', Times, serif; margin-top: 5%; margin-left: 5%; margin-bottom: 5%; background-color: navy; color: whitesmoke;">
+    <h2>Callback Messsage: </h2>                    <br>
+    <h3> Checksum Verification: {{ message }} </h3> <br>
+    MID: {{ MID }}                                  <br>
+    TXNID: {{ TXNID }}                              <br>
+    ORDERID: {{ ORDERID }}                          <br>
+    BANKTXNID: {{ BANKTXNID }}                      <br>
+    TXNAMOUNT: {{ TXNAMOUNT }}                      <br>
+    CURRENCY: {{ CURRENCY }}                        <br>
+    <h3> STATUS: {{ STATUS }} </h3>                 <br>
+    RESPCODE: {{ RESPCODE }}                        <br>
+    RESPMSG: {{ RESPMSG }}                          <br>
+    TXNDATE: {{ TXNDATE }}                          <br>
+    GATEWAYNAME: {{ GATEWAYNAME }}                  <br>
+    BANKNAME: {{ BANKNAME }}                        <br>
+    BIN_NAME: {{ BIN_NAME }}                        <br>
+    PAYMENTMODE: {{ PAYMENTMODE }}                  <br>
+    CHECKSUMHASH: {{ CHECKSUMHASH }}                <br>
+    <hr>
+    
+
+    {% if  STATUS.0 == 'TXN_SUCCESS' %}
+        <a class="btn btn-lg btn-primary" href="{% url 'user_pass' %}" role="button">Go For Download</a>
+    {% else %}
+        <a class="btn btn-lg btn-primary" href="{% url 'pay' %}" role="button">TRY AGAIN</a>
+    {% endif %}
+
+</body>
+
+</html>

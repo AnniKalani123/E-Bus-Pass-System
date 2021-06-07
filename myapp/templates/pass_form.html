@@ -1,0 +1,91 @@
+{% load static %} {% block content %}
+
+<head>
+    {% block css %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-grad-school.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/lightbox.css' %}"> 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            
+            $( "#datepicker1" ).datepicker().datepicker('setDate','today');
+            $( "#datepicker2" ).datepicker().datepicker('setDate','+29D');
+
+        } );
+    </script>
+</head>
+<section class="section contact" data-section="section6">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <center>
+                        <h2>Generate Pass Form</h2>
+                    </center>
+                </div>
+            </div>
+
+            <center>
+                <div class="col-md-8">
+
+                    <!-- Do you need a working HTML contact-form script?
+                
+                Please visit https://templatemo.com/contact page -->
+
+                    <form id="pass_form" action="{% url 'pass_form' %}" method="post" style="margin-left: 20px;">
+                        {% csrf_token %}
+                        <div class="row ">
+                            <div class="col-md-12 ">
+                                <input type='text' placeholder="Enter Your Destination. " class="form-control " name='Destination'>
+                            </div>
+                            <div class="col-md-12 ">
+                                <input type='text' placeholder="Enter Your From. " class="form-control " name='From'>
+                            </div>
+                            <div class="col-md-12 ">
+                                <input type='text' placeholder="Enter Your To " class="form-control " name='To'>
+                            </div>
+                            <div class="col-md-12 ">
+                                <input type='text' placeholder="Enter Your Distance. " class="form-control " name='Distance'>
+                            </div>
+                            <div class="col-md-12 ">
+                                <input type='text' placeholder="Enter Your Duration. " class="form-control " name='Duration' id="duration">
+                            </div>
+                            <div class="col-md-12 ">
+                                <input type='datetime' placeholder="Enter Your Issue_date. " class="form-control " name='Issue_date' id="datepicker1">
+                            </div>
+                            <div class="col-md-12 ">
+                                <input type='datetime' placeholder="Enter Your End_date. " class="form-control " name='End_date' id="datepicker2">
+                            </div>
+                            <div class="col-md-12 ">
+                                <input type='text' placeholder="Enter Your Pass_amount. " class="form-control " name='Pass_amount'>
+                            </div>
+
+                            {% if msg%}
+                            < class="row ">
+                                <h3>{{msg}}</h3>
+                                </> {% endif %}
+                                <div class="col-md-12 ">
+                                    <fieldset>
+                                        <button type='submit' id="form-submit " class="button ">Generate Pass</button>
+                                    </fieldset>
+                                    
+                                </div>
+                        </div>
+                    </form>
+                    <a href='{% url "index" %}' style="margin-left: 40px;">Back To Home</a>
+                </div>
+            </center>
+        </div>
+    </div>
+</section>
+{% endblock %}

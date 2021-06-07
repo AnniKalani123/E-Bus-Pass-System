@@ -1,0 +1,159 @@
+{% load static %} {% block content %}
+
+<head>
+    <meta charset='utf-8'>
+    <title>User Pass Details</title>
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-grad-school.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/lightbox.css' %}"> 
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <script src="https:////cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function myFunction() 
+        {
+            let d1 = new Date();
+            
+            var e = document.getElementsByTagName('td');
+            var end_date = e[17].innerText;
+            
+            let d2 = new Date(end_date);
+            
+            console.log(d1) 
+            console.log(d2)
+            if (d1>d2)
+            {
+                document.getElementById("renew").style.display = "inline";
+                document.getElementById("download").style.display = "none";
+                document.getElementById("message").innerText="Your Pass Has Been Expired, Kindly make payment & Download your Pass.."
+                alert("Pass is Expired...")
+            }
+        }
+    </script>
+</head>
+<body style="background-color: blueviolet; margin-bottom: 20px; margin-top: 20px;" onload="myFunction()">
+   
+   <div class="container">
+    <center>
+        <hr color="aqua">      
+        <h1 style="font-family: 'Times New Roman', Times, serif; color: whitesmoke;">User Pass Details</h1>    
+        <hr color="aqua">           
+        <table style="background-color: rgb(0, 255, 149); font-family: 'Times New Roman', Times, serif;" class="table table-bordered table-hover">
+            <tbody>
+                <tr>
+                    <th><h2>Personal Information</h2></th>
+                    <td>
+                        <a class="btn btn-lg btn-primary" href="{% url 'user_update' user.id %}" role="button">UPDATE</a>
+                        <a class="btn btn-lg btn-danger" href="{% url 'user_delete' user.id %}" role="button">DELETE</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><img src={{user.Profile_pic.url}} alt="Image Not Found" height="200px" ></td>
+                </tr>
+                <tr>
+                    <th>Username</th>
+                    <td>{{user.Username}}</td>
+                </tr>
+                <tr>
+                    <th>Full Name</th>
+                    <td>{{user.fname}} {{user.lname}}</td>
+                </tr>
+                <tr>
+                    <th>Contact No.</th>
+                    <td>{{user.contact}}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{user.email}}</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>{{user.address}} </td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <td>{{user.password}} </td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>{{user.Gender}} </td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td>{{user.age}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        {% if data %}
+        <hr color="aqua">
+        <table style="background-color: rgb(0, 255, 149); font-family: 'Times New Roman', Times, serif;" class="table table-bordered table-hover">
+            <tbody>
+               
+                <tr>
+                    <th><h2>Pass Information</h2></th>
+                    <td>
+                        <a id="renew" class="btn btn-lg btn-primary" href="{% url 'pass_update' data.id %}" role="button" style="display: none;">RENEW</a>
+                        <a class="btn btn-lg btn-danger" href="{% url 'pass_delete' data.id %}" role="button">DELETE</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Destination</th>
+                    <td>{{data.Destination}}</td>
+                </tr>
+                <tr>
+                    <th>From</th>
+                    <td>{{data.From}}</td>
+                </tr>
+                <tr>
+                    <th>To</th>
+                    <td>{{data.To}}</td>
+                </tr>
+                <tr>
+                    <th>Distance</th>
+                    <td>{{data.Distance}}</td>
+                </tr>
+                <tr>
+                    <th>Duration</th>
+                    <td>{{data.Duration}}</td>
+                </tr>
+                <tr>
+                    <th>Issue_date</th>
+                    <td>{{data.Issue_date}}</td>
+                </tr>
+                <tr>
+                    <th>End_date</th>
+                    <td>{{data.End_date}}</td>
+                </tr>
+                <tr>
+                    <th>Pass_amount</th>
+                    <td>{{data.Pass_amount}}  {{date}} </td>
+                </tr>
+                
+            </tbody>
+        </table>
+        {% endif %}
+        <hr color="aqua">    
+        <p><b id = "message" style="color: whitesmoke; font-size: x-large;"></b></p>
+        {% if data %}  
+
+            <a style="display: inline;" class="btn btn-lg btn-success" href="{% url 'index' %}" role="button">BACK TO HOME</a>
+            {% if status.pay_status == 'TXN_SUCCESS' %}
+                <a id="download" style="display: inline;" class="btn btn-lg btn-info" href="{% url 'render_pdf_view' %}" role="button">Download Pass</a>
+            {% else %}
+                <a class="btn btn-lg btn-info" href="{% url 'pay' %}" role="button">Pay & Download</a>
+            {% endif %}
+
+        {% else %}
+
+            <a class="btn btn-lg btn-success" href="{% url 'index' %}" role="button">BACK TO HOME</a>
+            <a class="btn btn-lg btn-info" href="{% url 'pass_form' %}" role="button">Generate Pass</a>
+
+        {% endif %}
+        <hr color="aqua">      
+    </center>
+       
+   </div>
+</body>          
+{% endblock %}

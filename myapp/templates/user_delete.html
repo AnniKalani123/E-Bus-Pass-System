@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% block css %}
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-grad-school.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/lightbox.css' %}"> 
+    
+    {% endblock %}
+</head>
+<body>
+
+    <center>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table class="table table-bordered table-hover" style="width: 50%;">
+                <tbody>
+                    <tr>
+                        <th><h2>Personal Information</h2></th>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><img src={{user.Profile_pic.url}} alt="Image Not Found" height="200px" ></td>
+                    </tr>
+                    <tr>
+                        <th>Username</th>
+                        <td>{{user.Username}}</td>
+                    </tr>
+                    <tr>
+                        <th>Full Name</th>
+                        <td>{{user.fname}} {{user.lname}}</td>
+                    </tr>
+                    <tr>
+                        <th>Contact No.</th>
+                        <td>{{user.contact}}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{user.email}}</td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td>{{user.address}} </td>
+                    </tr>
+                    <tr>
+                        <th>Password</th>
+                        <td>{{user.password}} </td>
+                    </tr>
+                    <tr>
+                        <th>Gender</th>
+                        <td>{{user.Gender}} </td>
+                    </tr>
+                    <tr>
+                        <th>Age</th>
+                        <td>{{user.age}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <input type="submit" value="Confirm" class="btn btn-danger">
+        </form>
+    </center>
+    
+</body>
+</html>

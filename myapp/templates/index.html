@@ -1,0 +1,86 @@
+{% extends 'header.html' %} {% load static %} {% block content %}
+<!-- ***** Main Banner Area Start ***** -->
+<section class="section main-banner" id="top" data-section="section1">
+    <video autoplay muted loop id="bg-video">
+        <!-- <source src="{% static 'assets/images/course-video.mp4' %}" type="video/mp4" /> -->
+    </video>
+
+    <div class="video-overlay header-text">
+        <div class="caption">
+            <h6>E-BUS Pass System</h6>
+            <h2><em>WEL</em> COME</h2>
+            <div class="main-button">
+                <div class="scroll-to-section"><a href="#section2">Discover more</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="section why-us" data-section="section2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <!-- <h2>Why choose Grad School?</h2> -->
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div id='tabs'>
+                    <ul>
+                        <li><a href='#tabs-1'>Existing System</a></li>
+                        <li><a href='#tabs-2'>Proposed System</a></li>
+                        <li><a href='#tabs-3'>QR - Code</a></li>
+                    </ul>
+                    <section class='tabs-content'>
+                        <article id='tabs-1'>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="{% static 'assets\images\pic.jpg.4.jpg' %}" alt="">
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>About System</h4>
+                                    <p>The current system of bus ticketing is very slow and tedious process.Customer needs to stand in long queue for issuing bus pass in bus Depot which is time consuming and this Process is hectic to employees in the Depot
+                                        as well as user.</p>
+                                    <p>Existing bus pass system has same drawbacks,like pass is regenerated every time.This is a vapid process, which require to reprint the pass every time. And existence system dose not provide any security options.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article id='tabs-2'>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="{% static 'assets\images\pic.jpg2.png' %}" alt="">
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>Proposed System</h4>
+                                    <p>This system reduces paper work, time consumption and makes the process of issuing pass in simpler and faster way. User can use the pass for long time, just need to recharge their account using OR Code and extend the
+                                        validity of pass every time when pass is going to expire. </p>
+                                    <p>No need to print the pass every time. conductor can see the bus pass by this he can known the validity of the pass or not.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article id='tabs-3'>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="{% static 'assets\images\pic.jpg.5.jpg' %}" alt="">
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>Information About QR-code</h4>
+                                    <p>We are implementing a smart card for digital bus pass system. We are going to use QR code in our card to fetch the information of the user like username, source, destination, DOB, expiry date etc. In our system, user
+                                        has to create his profile by visiting the website, after registering he/she will be able to sign in and make payment, for his pass.</p>
+                                    <p>After the successful payment, QR code will be generated and send to his email address.Hence, e-mail address is mandatory field.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+>
+</div>
+</div>
+</section> --> {% endblock %}
